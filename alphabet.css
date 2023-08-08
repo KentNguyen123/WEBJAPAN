@@ -1,0 +1,33 @@
+.column{
+    display: flex;
+    flex-direction: column;
+}
+
+.padding-10{
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: justify;
+}
+
+.box{
+    background-color: rgb(255,255,240);
+    box-shadow: 6px 10px 12px 3px rgba(46, 11, 29, 0.21);
+    border-radius: 1.4rem;
+    margin-left: 4%;
+    margin-right: 5%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    padding-bottom: 1%;
+    width: 11%;
+    height: 11%;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.margindesign{
+    margin-left: 10%;
+    margin-right: 10%;
+}

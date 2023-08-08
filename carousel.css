@@ -48,26 +48,26 @@ body {
 ------------------------- */
 
 .featurette-divider {
-  margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+  margin: 1rem 0; /* Space out the Bootstrap <hr> more */
 }
 
 /* Thin out the marketing headings */
 /* rtl:begin:remove */
-.featurette-heading {
-  letter-spacing: -.05rem;
-}
+/* .featurette-heading {
+  letter-spacing: -.02rem;
+} */
 
 /* rtl:end:remove */
 
 /* RESPONSIVE CSS
 -------------------------------------------------- */
 
-@media (min-width: 40em) {
+@media (min-width: 35em) {
   /* Bump up size of carousel content */
   .carousel-caption p {
     margin-bottom: 1.25rem;
     font-size: 1.25rem;
-    line-height: 1.4;
+    line-height: 1;
   }
 
   .featurette-heading {
@@ -75,8 +75,9 @@ body {
   }
 }
 
-@media (min-width: 62em) {
+@media (min-width: 58em) {
   .featurette-heading {
     margin-top: 7rem;
   }
 }
+

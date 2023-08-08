@@ -123,6 +123,7 @@
     <!--Custom cho phần navbar-->
     <link href="headers.css" rel="stylesheet">
     <link href="carousel.css" rel="stylesheet">
+    <link href="navbar-fixed.css" rel="stylesheet">
   </head>
   <body>
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -255,7 +256,7 @@
     </div>
 
     
-    <header class="p-3 text-bg-dark">
+    <!-- <header class="p-3 text-bg-dark">
       <div class="container">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
           <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
@@ -276,12 +277,42 @@
           </form>
   
           <div class="text-end">
-            <button type="button" class="btn btn-outline-light me-2">Login</button>
-            <button type="button" class="btn btn-warning">Sign-up</button>
+            <button type="button" id="signupButton" class="btn btn-warning">
+              <a href="./lore.html">Login/Register</a>
+            </button>
           </div>
         </div>
       </div>
-    </header>
+    </header> -->
+
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top background">
+      <div class="container-fluid">
+        <img src="./image/LOGO.jpg" alt="" width="4%" height="4%">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <li class="nav-item">
+              <a class="nav-link disabled" aria-current="page" href="./index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="./alphabet.html">Alphabet</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active">Disabled</a>
+            </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+          <div class="text-end">
+            <button type="button" id="signupButton" class="btn btn-warning">
+              <a href="./lore.html">Login/Register</a>
+        </div>
+      </div>
+    </nav>
 
 <main>
 
