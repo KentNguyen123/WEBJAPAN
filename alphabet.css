@@ -1,3 +1,11 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body, html{
+    width: 197vh;
+}
 .column{
     display: flex;
     flex-direction: column;
@@ -30,4 +38,32 @@
 .margindesign{
     margin-left: 10%;
     margin-right: 10%;
+}
+
+.circle{
+    width: 35px;
+    height: 35px;
+    background-color: #406d91;
+    border-radius: 50%; 
+    
+}
+
+.audio{
+    position: absolute;
+    z-index: 100;
+    right: 32px;
+    bottom: 32px;
+    display: block;
+    padding: 20px;
+    cursor: pointer;
+    border-radius: 24px;
+    background: #ff886c;
+}
+
+.icn-play{
+    display: block;
+    width: 24px;
+    height: 24px;
+    background: url(https://www.nhk.or.jp/lesson/assets/images/icn_speaker.png) no-repeat center center/100%;
+    background-size: 100%;
 }
