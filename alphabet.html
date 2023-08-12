@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/footers/">
 
 
 
@@ -211,11 +211,21 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link disabled" href="./alphabet.html">Alphabet</a>
+          </li> -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="alphabetDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Alphabet
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="alphabetDropdown">
+              <li><a class="dropdown-item" href="./alphabet.html">Hiragana</a></li>
+              <li><a class="dropdown-item" href="./alphabetKata.html">Katakana</a></li>
+            </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link active">Disabled</a>
+            <a class="nav-link active" href="./news.html">News</a>
           </li>
         </ul>
         <form class="d-flex" role="search">
@@ -484,8 +494,10 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"
     integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa"
     crossorigin="anonymous"></script>
-    <script src="./alphabet.js"></script>
-  
+  <script src="./alphabet.js"></script>
+
+
+
 </body>
 
 </html>
