@@ -58,3 +58,7 @@ body{
 .text{
   color: red;
 }
+
+.padding{
+  padding-left: 3%;
+}
