@@ -2,7 +2,24 @@ import app from "./index.js"
 import Register from "./register.js"
 // import khi đến đoạn go to Register
 
-class Login{
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
+import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js";
+
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+    apiKey: "AIzaSyBy3dAUhhmpZqwdHWfi7o7c2DQdqI_t5ro",
+    authDomain: "lesson5-529f4.firebaseapp.com",
+    projectId: "lesson5-529f4",
+    storageBucket: "lesson5-529f4.appspot.com",
+    messagingSenderId: "739942235147",
+    appId: "1:739942235147:web:86a67e399dd2eb59d99b0e"
+  };
+
+const firebaseApp = initializeApp(firebaseConfig);
+const auth = getAuth(firebaseApp);
+
+class Login {
     $txtEmail
     $txtPassword
     $formLogin
@@ -12,15 +29,15 @@ class Login{
     $inputEmailContainer
     $inputPasswordContainer
     $buttonContainer
-    
 
-    constructor () {
+
+    constructor() {
         this.$container = document.createElement("div");
         this.$container.classList.add("container")
 
         this.$inputEmailContainer = document.createElement("div")
         this.$inputEmailContainer.classList.add("userbox")
-        this.$txtEmail = document.createElement("input") 
+        this.$txtEmail = document.createElement("input")
         this.$txtEmail.type = "email"
         this.$txtEmail.placeholder = "Enter your email ... "
 
@@ -46,7 +63,7 @@ class Login{
 
     }
 
-    initRender = (container) =>{
+    initRender = (container) => {
         // const flexContainer = document.createElement("div")
         // const title = document.createElement("h2")
         // title.innerHTML ="Login"
@@ -61,23 +78,23 @@ class Login{
         // flexContainer.appendChild(this.$buttonContainer)
         // flexContainer.appendChild(this.$txtGotoRegister)
 
-        
+
         // this.$formLogin.appendChild(flexContainer)
         // this.$formLogin.addEventListener("submit",this.login)
         // this.$container.appendChild(this.$formLogin)
         // container.appendChild(this.$container)
-        container.innerHTML = 
-        `<div class="container">
+        container.innerHTML =
+            `<div class="container">
             <form class="form-class">
                 <div class="d-flex flex-column centering">
                     <h2>LOGIN</h2>
                     <div class="userbox">
-                        <input type="email" placeholder="Enter your mail...">
-                        <input type="password" placeholder="Enter your password...">
+                        <input type="email" placeholder="Enter your mail..." id="emailInput">
+                        <input type="password" placeholder="Enter your password..." id="passwordInput">
                     </div>
 
                     <div class="buttonMain">
-                        <button class="btn">LOGIN</button>
+                        <button class="btn" id="dangNhap">LOGIN</button>
                     </div>
 
                     <a class="account" id="dangKi">Register your new account</a>
@@ -90,8 +107,11 @@ class Login{
         let register = document.getElementById("dangKi")
         register.addEventListener("click", this.gotoRegister)
 
-        
-        
+        let login = document.getElementById("dangNhap")
+        login.addEventListener("click", this.login)
+
+
+
     }
 
     //2
@@ -100,10 +120,26 @@ class Login{
         app.changeActiveScreen(register)
     }
 
-    login =(e) => {
+    login = (e) => {
         e.preventDefault()
-        const email = this.$txtEmail.value
-        const password = this.$txtPassword.value
+        const email = document.getElementById("emailInput").value
+        const password = document.getElementById("passwordInput").value
+
+        signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                // Signed in 
+                const user = userCredential.user;
+                alert("Đăng nhập thành công")
+                window.location.href = "index.html"
+                // ...
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log(errorMessage)
+                // ..
+            });
+
     }
 }
 

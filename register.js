@@ -2,6 +2,22 @@ import app from "./index.js"
 import Login from "./login.js"
 // import khi đến đoạn go to Register
 
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
+import { getAuth, createUserWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js";
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+    apiKey: "AIzaSyBy3dAUhhmpZqwdHWfi7o7c2DQdqI_t5ro",
+    authDomain: "lesson5-529f4.firebaseapp.com",
+    projectId: "lesson5-529f4",
+    storageBucket: "lesson5-529f4.appspot.com",
+    messagingSenderId: "739942235147",
+    appId: "1:739942235147:web:86a67e399dd2eb59d99b0e"
+};
+
+const firebaseApp = initializeApp(firebaseConfig);
+const auth = getAuth(firebaseApp);
+
 class Register {
     $formRegister
     $txtEmail
@@ -100,11 +116,9 @@ class Register {
         }
 
         let myArr = [email, userName, pass, confirmPass]
-        firebase
-            .auth()
-            .createUserWithEmailAndPassword(email, pass)
+        createUserWithEmailAndPassword(auth,email, pass)
             .then((userCredential) => {
-                firebase.auth().currentUser.updateProfile({displayName: userName})
+                firebase.auth().currentUser.updateProfile({ displayName: userName })
                 firebase.auth().currentUser.sendEmailVerification()
             })
     }
@@ -137,27 +151,27 @@ class Register {
         // flexContainer.appendChild(this.$inputPasswordContainer)
         // this.$inputPasswordAgainContainer.appendChild(this.$txtConfirmPass)
         // flexContainer.appendChild(this.$inputPasswordAgainContainer)
-        
+
         // flexContainer.appendChild(this.$btnSubmit)
 
         // flexContainer.appendChild(this.$txtGotoLogin)
 
         // this.$formRegister.appendChild(flexContainer)
         // container.appendChild(this.$formRegister)
-        container.innerHTML = 
-        `<div class="container">
+        container.innerHTML =
+            `<div class="container">
             <form class="form-class">
                 <div class="d-flex flex-column centering">
                     <h2>REGISTER</h2>
                     <div class="userbox">
-                        <input type="email" placeholder="Enter your mail...">
+                        <input type="email" id="email" placeholder="Enter your mail...">
                         <input type="text" placeholder="What's your name...">
-                        <input type="password" placeholder="Enter your password...">
-                        <input type="password" placeholder="Confirm your password...">
+                        <input type="password" id="password" placeholder="Enter your password...">
+                        <input type="password" id="confirmPassword" placeholder="Confirm your password...">
                     </div>
 
                     <div class="buttonMain">
-                        <button class="btn">SUBMIT</button>
+                        <button class="btn" id="dangKi">SUBMIT</button>
                     </div>
 
                     <a class="account" id="dangNhap">You already have an account?</a>
@@ -169,12 +183,46 @@ class Register {
         let login = document.getElementById("dangNhap")
         login.addEventListener("click", this.gotoLogin)
 
+        let register = document.getElementById("dangKi")
+        register.addEventListener("click", this.register)
+
     }
 
     //2
     gotoLogin = () => {
         const login = new Login()
         app.changeActiveScreen(login)
+    }
+
+    register = (e) => {
+        e.preventDefault()
+        let email = document.getElementById("email").value
+        let password = document.getElementById("password").value
+        let confirmPassword = document.getElementById("confirmPassword").value
+        if (email === "") {
+            alert("Email cannot be empty!")
+            return
+        }
+        if (password === "") {
+            alert("Password cannot be empty!")
+            return
+        }
+        if (confirmPassword === "") {
+            alert("Confirm your password!")
+            return
+        }
+        if (confirmPassword !== password) {
+            alert("Your password not match")
+            return
+        }
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                alert("Register success")
+                window.location.href = "./index.html"
+            })
+            .catch((error) => {
+                alert(error.message)
+            })
     }
 }
 
