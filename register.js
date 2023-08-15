@@ -217,7 +217,7 @@ class Register {
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 alert("Register success")
-                window.location.href = "./index.html"
+                window.location.href = "./lore.html"
             })
             .catch((error) => {
                 alert(error.message)

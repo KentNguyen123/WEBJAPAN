@@ -130,7 +130,7 @@ class Login {
                 // Signed in 
                 const user = userCredential.user;
                 alert("Đăng nhập thành công")
-                window.location.href = "index.html"
+                window.location.href = "main.html"
                 // ...
             })
             .catch((error) => {
