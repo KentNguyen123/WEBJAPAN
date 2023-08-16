@@ -379,17 +379,18 @@
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success" type="submit">Search</button>
           </form>
-
-          <div class="dropdown">
+          <div class="btn-group">
+            <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
             <i class="fa-regular fa-face-smile fa-xl" style="padding-left: 5px;"></i>
-            <div class="dropdown-content" id="dropdownContent">
-              <a href="#">Thông tin cá nhân</a>
-              <a href="#">Cài đặt</a>
-              <a href="#">Trợ giúp</a>
-              <a href="#" id="logoutLink">Đăng xuất</a>
-            </div>
+              
+            </button>
+            <ul class="dropdown-menu dropdown-menu-lg-end">
+              <li><button class="dropdown-item" type="button"><a href="#">Thông tin cá nhân</a></button></li>
+              <li><button class="dropdown-item" type="button"><a href="#">Cài đặt</a></button></li>
+              <li><button class="dropdown-item" type="button"><a href="#">Trợ giúp</a></button></li>
+              <li><button class="dropdown-item" type="button"><a href="#" id="logoutLink">Đăng xuất</a></button></li>
+            </ul>
           </div>
-
 
         </div>
     </nav>
